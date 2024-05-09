@@ -1,0 +1,38 @@
+// 1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+let nftCollection = [];
+
+// 2. Create an object inside your mintNFT function that will hold the metadata for your NFTs.
+//    The metadata values will be passed to the function as parameters. When the NFT is ready, 
+//    you will store it in the variable you created in step 1
+function mintNFT(name, creator, description) {
+    let nft = {
+        name: name,
+        creator: creator,
+        description: description
+    };
+    nftCollection.push(nft);
+}
+
+// 3. Your listNFTs() function will print all of your NFTs metadata to the console
+function listNFTs() {
+    console.log("Listing all NFTs:");
+    nftCollection.forEach((nft, index) => {
+        console.log(`NFT ${index + 1}:`);
+        console.log("Name: " + nft.name);
+        console.log("Creator: " + nft.creator);
+        console.log("Description: " + nft.description);
+        console.log("------------------");
+    });
+}
+
+// 4. For good measure, getTotalSupply() should return the number of NFT's you have created
+function getTotalSupply() {
+    return nftCollection.length;
+}
+
+// Call your functions below this line
+mintNFT("NFT 1", "Creator 1", "This is the first NFT");
+mintNFT("NFT 2", "Creator 2", "This is the second NFT");
+
+listNFTs();
+console.log("Total NFTs created: " + getTotalSupply());
